@@ -1,14 +1,20 @@
-import react from "react";
+import React from "react";
 
-const classes = ({ classes, students }) => {
+const Classes = ({ classes, students }) => {
     return (
         <div>
             <h2># of students per class:</h2>
             <div>
-
+                {
+                    classes.class_name.map((course, i) => {                        
+                        return (
+                            <div key={course}>{`${course}: ${students[i+1]}`}</div>
+                        );
+                    })
+                }
             </div>
         </div>
     );
 }
 
-export default classes;
+export default Classes;
