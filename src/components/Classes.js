@@ -2,7 +2,7 @@ import React from "react";
 
 const Classes = ({ classes, students }) => {
     return (
-        <div>
+        <div className="bg-dark-gray dtc br3 pa2 grow bw2 shadow-5">
             <h2># of students per class:</h2>
             <div>
                 {

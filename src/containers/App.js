@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
 import Classes from '../components/Classes';
 import Countries from '../components/Countries';
 import Students from '../components/Students';
@@ -64,21 +65,18 @@ function App() {
 
   // Check if data has been fetched then display info, if not then display 'LOADING...'
   if (!students.length || !Object.keys(classes).length || !Object.keys(countries).length) {
-    return (
-      <div className="App">
-        <a href="https://github.com/rihal-om/rihal-challenges/tree/main/devops" target="_blank" rel="noreferrer"><h1>Rihal's Challenge</h1></a>
-        <h1>LOADING...</h1>
-      </div>
-    );
+    return <h1 className="pa6 mv7 tc pv3 mv2">LOADING...</h1>;
   }
   else {
     return (
-      <div className="App">
-        <a href="https://github.com/rihal-om/rihal-challenges/tree/main/devops" target="_blank" rel="noreferrer"><h1>Rihal's Challenge</h1></a>
-        <h2>{`There are a total of ${students.length} students.`}</h2>
-        <Students avgAge={ avgAge }/>
-        <Classes classes={ classes } students ={ studentsPerClass }/>
-        <Countries countries={ countries } students ={ studentsPerCountry }/>
+        <div className="tc pv3 mv2 ba br3 bw2">
+          <Header/>
+          <h2>{`There is a total of ${students.length} students.`}</h2>
+          <Students avgAge={ avgAge }/>
+          <div className="dt center ma1">
+            <Classes classes={ classes } students ={ studentsPerClass }/>
+            <Countries countries={ countries } students ={ studentsPerCountry }/>
+          </div>
       </div>
     );
   }
