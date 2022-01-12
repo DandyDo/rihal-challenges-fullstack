@@ -27,11 +27,6 @@ function App() {
       .catch(err => console.log(err));
   }, [])
 
-  // Get the classes/countries IDs only from students
-  const studentsCountryKey = students.map(({ country_id }) => (country_id));
-  const studentsClassesKey = students.map(({ class_id }) => (class_id));
-  // TODO: const avgAge = //
-
   // Group the object's key values (for example in case of classes_id, 1: 6, 2: 3, 3: 12, ...)
   const groupObjKeyValue = (studentsKey) => {
     const result = studentsKey.reduce((acc, b) => {
@@ -42,6 +37,28 @@ function App() {
     return result;
   }
 
+  // Convert birthdate to  age from passed input (yyyy-mm-dd)
+  const getAge = (dateString) => {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+  }
+
+  // Extract the birdates, then find the average age of students
+  const avgAge = students.map(({ birthdate }) => {
+    return getAge((birthdate));
+  }).reduce((sum, age) => { 
+    return (sum + age / students.length) 
+  }, 0).toFixed(2);  
+
+  // Extract the classes/countries IDs only from students
+  const studentsCountryKey = students.map(({ country_id }) => (country_id));
+  const studentsClassesKey = students.map(({ class_id }) => (class_id));
   const studentsPerCountry = groupObjKeyValue(studentsCountryKey);
   const studentsPerClass = groupObjKeyValue(studentsClassesKey);
 
@@ -59,7 +76,7 @@ function App() {
       <div className="App">
         <a href="https://github.com/rihal-om/rihal-challenges/tree/main/devops" target="_blank" rel="noreferrer"><h1>Rihal's Challenge</h1></a>
         <h2>{`There are a total of ${students.length} students.`}</h2>
-        <Students avgAge={ countries }/>
+        <Students avgAge={ avgAge }/>
         <Classes classes={ classes } students ={ studentsPerClass }/>
         <Countries countries={ countries } students ={ studentsPerCountry }/>
       </div>
