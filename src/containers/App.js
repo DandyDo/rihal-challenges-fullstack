@@ -69,11 +69,13 @@ function App() {
   }
   else {
     return (
-        <div className="tc pv3 mv2 ba br3 bw2">
-          <Header/>
-          <h2>{`There is a total of ${students.length} students.`}</h2>
-          <Students avgAge={ avgAge }/>
-          <div className="dt center ma1">
+        <div className="tc pv3 mv2 ba br3 bw2 w-85 center">
+          <div>
+            <Header/>
+            <h2>{`There is a total of ${students.length} students.`}</h2> 
+            <Students avgAge={ avgAge }/>
+          </div>
+          <div className="flex flex-wrap justify-center w-70 center">
             <Classes classes={ classes } students ={ studentsPerClass }/>
             <Countries countries={ countries } students ={ studentsPerCountry }/>
           </div>
