@@ -38,12 +38,12 @@ function App() {
     return result;
   }
 
-  // Convert birthdate to  age from passed input (yyyy-mm-dd)
+  // Convert birthdate to age from passed input (yyyy-mm-dd)
   const getAge = (dateString) => {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
+    let today = new Date();
+    let birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
@@ -75,7 +75,7 @@ function App() {
             <h2>{`There is a total of ${students.length} students.`}</h2> 
             <Students avgAge={ avgAge }/>
           </div>
-          <div className="flex flex-wrap justify-center w-70 center">
+          <div className="flex flex-wrap justify-around w-70 center">
             <Classes classes={ classes } students ={ studentsPerClass }/>
             <Countries countries={ countries } students ={ studentsPerCountry }/>
           </div>
