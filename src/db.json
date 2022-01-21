@@ -1,184 +1,204 @@
 {
     "students": [
         {
-            "student_id": 1,
+            "id": 1,
             "class_id": 9,
             "country_id": 3,
             "name": "Camala Wallsam",
             "birthdate": "1990/2/13"
         }, 
         {
-            "student_id": 2,
+            "id": 2,
             "class_id": 6,
             "country_id": 3,
             "name": "Petronia Doull",
             "birthdate": "1993/2/12"
         }, 
         {
-            "student_id": 3,
+            "id": 3,
             "class_id": 1,
             "country_id": 3,
             "name": "Zahara Farn",
             "birthdate": "1983/6/22"
         }, 
         {
-            "student_id": 4,
+            "id": 4,
             "class_id": 11,
             "country_id": 3,
             "name": "Ricard Girton",
             "birthdate": "2000/1/1"
         }, 
         {
-            "student_id": 5,
+            "id": 5,
             "class_id": 9,
             "country_id": 1,
             "name": "Jamie Kimmons",
             "birthdate": "1998/2/18"
         }, 
         {
-            "student_id": 6,
+            "id": 6,
             "class_id": 1,
             "country_id": 2,
             "name": "Inger Gamil",
             "birthdate": "1997/5/21"
         }, 
         {
-            "student_id": 7,
+            "id": 7,
             "class_id": 6,
             "country_id": 3,
             "name": "Davy Titchard",
             "birthdate": "1992/12/23"
         }, 
         {
-            "student_id": 8,
+            "id": 8,
             "class_id": 5,
             "country_id": 1,
             "name": "Angelika Meco",
             "birthdate": "1983/1/9"
         }, 
         {
-            "student_id": 9,
+            "id": 9,
             "class_id": 6,
             "country_id": 2,
             "name": "Maren Kose",
             "birthdate": "1995/2/17"
         }, 
         {
-            "student_id": 10,
+            "id": 10,
             "class_id": 10,
             "country_id": 3,
             "name": "Andrei Cauderlie",
             "birthdate": "1992/7/18"
         }, 
         {
-            "student_id": 11,
+            "id": 11,
             "class_id": 8,
             "country_id": 1,
             "name": "Rosanne Leagas",
             "birthdate": "1999/2/19"
         }, 
         {
-            "student_id": 12,
+            "id": 12,
             "class_id": 1,
             "country_id": 2,
             "name": "Kalvin Kornilov",
             "birthdate": "1980/1/22"
         }, 
         {
-            "student_id": 13,
+            "id": 13,
             "class_id": 6,
             "country_id": 3,
             "name": "Devora Heineken",
             "birthdate": "1994/6/8"
         }, 
         {
-            "student_id": 14,
+            "id": 14,
             "class_id": 7,
             "country_id": 3,
             "name": "Geoff Petrov",
             "birthdate": "1996/5/21"
         }, 
         {
-            "student_id": 15,
+            "id": 15,
             "class_id": 5,
             "country_id": 3,
             "name": "Athena McKag",
             "birthdate": "1993/12/15"
         }, 
         {
-            "student_id": 16,
+            "id": 16,
             "class_id": 4,
             "country_id": 3,
             "name": "Rolf Woolveridge",
             "birthdate": "1996/9/22"
         }, 
         {
-            "student_id": 17,
+            "id": 17,
             "class_id": 3,
             "country_id": 3,
             "name": "Basil Catley",
             "birthdate": "1991/2/8"
         }, 
         {
-            "student_id": 18,
+            "id": 18,
             "class_id": 1,
             "country_id": 3,
             "name": "Branden Hinkins",
             "birthdate": "1997/12/1"
         }, 
         {
-            "student_id": 19,
+            "id": 19,
             "class_id": 2,
             "country_id": 3,
             "name": "Yolanda Perrycost",
             "birthdate": "1996/6/9"
         }, 
         {
-            "student_id": 20,
+            "id": 20,
             "class_id": 1,
             "country_id": 2,
             "name": "Norina Retter",
             "birthdate": "2000/4/20"
         }
     ],
-    "countries": {
-        "country_id": [
-            1,
-            2,
-            3
-        ],
-        "country_name": [
-            "Oman",
-            "United Arab Emirates",
-            "Saudi Arabia"
-        ]
-    },
-    "classes": {
-        "class_id": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9, 
-            10, 
-            11
-        ],
-        "class_name": [
-            "Marketing",
-            "Legal",
-            "Engineering",
-            "Product Management",
-            "Business Development",
-            "Sales",
-            "Accounting",
-            "Support",
-            "Research and Development", 
-            "Services", 
-            "Human Resources"
-        ]
-    }
+    "countries": [
+        {
+            "id": 1,
+            "country_name": "Oman"
+        },
+        {
+            "id": 2,
+            "country_name": "United Arab Emirates"
+        },
+        {
+            "id": 3,
+            "country_name": "Saudi Arabia"
+        }
+    ],
+    "classes": [
+        {
+            "id": 1,
+            "class_name": "Marketing"
+        },
+        {
+            "id": 2,
+            "class_name": "Legal"
+        },
+        {
+            "id": 3,
+            "class_name": "Engineering"
+        },
+        {
+            "id": 4,
+            "class_name": "Product Management"
+        },
+        {
+            "id": 5,
+            "class_name": "Business Development"
+        },
+        {
+            "id": 6,
+            "class_name": "Sales"
+        },
+        {
+            "id": 7,
+            "class_name": "Accounting"
+        },
+        {
+            "id": 8,
+            "class_name": "Support"
+        },
+        {
+            "id": 9,
+            "class_name": "Research and Development"
+        },
+        {
+            "id": 10,
+            "class_name": "Services"
+        },
+        {
+            "id": 11,
+            "class_name": "Human Resources"
+        }
+    ]
 }
