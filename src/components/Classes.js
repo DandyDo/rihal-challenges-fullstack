@@ -5,9 +5,9 @@ const Classes = ({ classes, students }) => {
         <div className="bg-dark-gray ma2 br3 pa3 grow bw2 shadow-5">
             <h2># of students per class:</h2>
             {
-                classes.class_name.map((course, i) => {                        
+                classes.map(({ class_name }, i) => {                        
                     return (
-                        <div key={course}>{`${course}: ${students[i+1]}`}</div>
+                        <div key={class_name}>{`${class_name}: ${students[i+1]}`}</div>
                     );
                 })
             }

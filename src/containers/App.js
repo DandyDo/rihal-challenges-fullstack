@@ -7,8 +7,8 @@ import Students from '../components/Students';
 
 function App() {
   const [students, setStudents] = useState([])
-  const [classes, setClasses] = useState({})
-  const [countries, setCountries] = useState({})
+  const [classes, setClasses] = useState([])
+  const [countries, setCountries] = useState([])
 
   // Get the required data from local db.json (using json-server)
   useEffect(() => {
@@ -64,7 +64,7 @@ function App() {
   const studentsPerClass = groupObjKeyValue(studentsClassesKey);
 
   // Check if data has been fetched then display info, if not then display 'LOADING...'
-  if (!students.length || !Object.keys(classes).length || !Object.keys(countries).length) {
+  if (!students.length || !classes.length || !countries.length) {
     return <h1 className="pa6 mv7 tc pv3 mv2">LOADING...</h1>;
   }
   else {
