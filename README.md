@@ -1,3 +1,7 @@
+Checkout Rihal's challenge [HERE](https://github.com/rihal-om/rihal-challenges/tree/main/devops).
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
