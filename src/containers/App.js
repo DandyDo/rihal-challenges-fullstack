@@ -28,6 +28,7 @@ function App() {
     fetch('http://localhost:3000/countries')
       .then(response => response.json())
       .then(data => {setCountries(data)})
+      
       .catch(err => console.log(err));
   }, [])
 
@@ -75,6 +76,9 @@ function App() {
         <div className="tc pv3 mv2 ba br3 bw2 w-85 center">
           <div>
             <Header/>
+            <Classes classes={classes}></Classes>
+            <Countries countries={countries}></Countries>
+            <Students students={students}></Students>
             <h2>{`There is a total of ${students.length} students.`}</h2> 
             <StudentsAvg avgAge={ avgAge }/>
           </div>
