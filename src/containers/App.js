@@ -1,9 +1,12 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import Classes from '../components/Classes';
-import Countries from '../components/Countries';
-import Students from '../components/Students';
+import Students from '../components/Lists/Students';
+import Countries from '../components/Lists/Countries';
+import Classes from '../components/Lists/Classes';
+import StudentsAvg from '../components/Stats/StudentsAvg'; 
+import CountriesStats from '../components/Stats/CountriesStats';
+import ClassesStats from '../components/Stats/ClassesStats';
 
 function App() {
   const [students, setStudents] = useState([])
@@ -73,11 +76,16 @@ function App() {
           <div>
             <Header/>
             <h2>{`There is a total of ${students.length} students.`}</h2> 
-            <Students avgAge={ avgAge }/>
+            <StudentsAvg avgAge={ avgAge }/>
           </div>
           <div className="flex flex-wrap justify-around w-70 center">
-            <Classes classes={ classes } students ={ studentsPerClass }/>
-            <Countries countries={ countries } students ={ studentsPerCountry }/>
+            <ClassesStats classes={ classes } students ={ studentsPerClass }/>
+            <CountriesStats countries={ countries } students ={ studentsPerCountry }/>
+          </div>
+          <div className="flex flex-wrap justify-around mt3 w-50 center">
+            <button>View Classes</button>
+            <button>View Students</button>
+            <button>View Countries</button>
           </div>
       </div>
     );

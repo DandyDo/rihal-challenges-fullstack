@@ -1,6 +1,6 @@
 import React from "react";
 
-const Countries = ({ countries, students }) => {
+const CountriesStats = ({ countries, students }) => {
     return (
         <div className="bg-dark-gray ma2 br3 pa3 grow bw2 shadow-5">
             <h2># of students per country:</h2>
@@ -15,4 +15,4 @@ const Countries = ({ countries, students }) => {
     );
 }
 
-export default Countries;
+export default CountriesStats;
