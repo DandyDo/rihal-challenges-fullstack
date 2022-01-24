@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Countries = ({ countries, setCondition }) => {
+const Countries = ({ countries, setEditCountry, setCondition }) => {
   return (
     <div>
       <h2 className='underline'>Countries Table</h2>
@@ -15,7 +15,7 @@ const Countries = ({ countries, setCondition }) => {
           {
             countries.map(country => {
               return (
-                <tr key={country.id} onClick={() => { setCondition(true) }}>
+                <tr key={country.id} onClick={() => { setEditCountry(country); setCondition(true); }}>
                   <td>{country.id}</td>
                   <td>{country.country_name}</td>
                 </tr>
