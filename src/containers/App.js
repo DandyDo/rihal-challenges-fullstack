@@ -8,14 +8,22 @@ import Dialogue from '../components/Lists/Dialogue';
 import Students from '../components/Lists/Students/Students';
 import Countries from '../components/Lists/Countries/Countries';
 import Classes from '../components/Lists/Classes/Classes';
+import EditClasses from '../components/Lists/Classes/EditClasses';
+import EditCountries from '../components/Lists/Countries/EditCountries';
+import EditStudents from '../components/Lists/Students/EditStudents';
 
 function App() {
   const [students, setStudents] = useState([])
   const [classes, setClasses] = useState([])
   const [countries, setCountries] = useState([])
-  const [classCond, setClassCond] = useState(false) // State for Dialogue.js
-  const [countryCond, setCountryCond] = useState(false) // State for Dialogue.js
-  const [studentCond, setStudentCond] = useState(false) // State for Dialogue.js
+
+  // The following states are for Dialogue.js
+  const [classCond, setClassCond] = useState(false)
+  const [countryCond, setCountryCond] = useState(false)
+  const [studentCond, setStudentCond] = useState(false)
+  const [editClassCond, setEditClassCond] = useState(false)
+  const [editCountryCond, setEditCountryCond] = useState(false) 
+  const [editStudentCond, setEditStudentCond] = useState(false)
 
   // Get the required data from local db.json (using json-server)
   useEffect(() => {
@@ -91,14 +99,24 @@ function App() {
             <button onClick={() => { setClassCond(true) }}>View Classes</button>
             <button onClick={() => { setCountryCond(true) }}>View Countries</button>
             <button onClick={() => { setStudentCond(true) }}>View Students</button>
-            <Dialogue condition={classCond} setCondition={ setClassCond }>
-              <Classes classes={classes} />
+            {/* Below are hidden dialogues that get triggered by the three buttons above. */}
+            <Dialogue condition={ classCond } setCondition={ setClassCond }>
+              <Classes classes={ classes } setCondition={ setEditClassCond }/>
+              <Dialogue condition={ editClassCond } setCondition={ setEditClassCond }>
+                  <EditClasses/>
+              </Dialogue>
             </Dialogue>
-            <Dialogue condition={countryCond} setCondition={ setCountryCond }>
-              <Countries countries={countries} />
+            <Dialogue condition={ countryCond } setCondition={ setCountryCond }>
+              <Countries countries={ countries } setCondition={ setEditCountryCond }/>
+              <Dialogue condition={ editCountryCond } setCondition={ setEditCountryCond }>
+                  <EditCountries/>
+              </Dialogue>
             </Dialogue>
-            <Dialogue condition={studentCond} setCondition={ setStudentCond }>
-              <Students students={students} />
+            <Dialogue condition={ studentCond } setCondition={ setStudentCond }>
+              <Students students={ students } setCondition={ setEditStudentCond }/>
+              <Dialogue condition={ editStudentCond } setCondition={ setEditStudentCond }>
+                  <EditStudents/>
+              </Dialogue>
             </Dialogue>
           </div>
       </div>

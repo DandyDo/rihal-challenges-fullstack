@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Students = ({ students }) => {
+const Students = ({ students, setCondition }) => {
   return (
     <div>
       <h2 className='underline'>Students Table</h2>
@@ -19,7 +19,7 @@ const Students = ({ students }) => {
             {
               students.map(student => {
                 return (
-                  <tr key={student.id}>
+                  <tr key={student.id} onClick={() => { setCondition(true) }}>
                     <td>{student.id}</td>
                     <td>{student.class_id}</td>
                     <td>{student.country_id}</td>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Classes = ({ classes }) => {
+const Classes = ({ classes, setCondition }) => {
   return (
     <div>
       <h2 className='underline'>Classes Table</h2>
@@ -15,7 +15,7 @@ const Classes = ({ classes }) => {
           {
             classes.map(course => {
               return (
-                <tr key={course.id}>
+                <tr key={course.id} onClick={() => { setCondition(true) }}>
                   <td>{course.id}</td>
                   <td>{course.class_name}</td>
                 </tr>
