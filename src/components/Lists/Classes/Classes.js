@@ -3,6 +3,7 @@ import React from 'react';
 const Classes = ({ classes }) => {
   return (
     <div>
+      <h2 className='underline'>Classes Table</h2>
       <table>
         <thead>
           <tr>
@@ -30,7 +31,6 @@ const Classes = ({ classes }) => {
         <button className='mt3 w-20'>Add</button>
       </div>
     </div>
-
   );
 }
 

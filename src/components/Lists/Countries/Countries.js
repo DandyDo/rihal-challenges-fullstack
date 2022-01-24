@@ -3,6 +3,7 @@ import React from 'react';
 const Countries = ({ countries }) => {
   return (
     <div>
+      <h2 className='underline'>Countries Table</h2>
       <table>
         <thead>
           <tr>

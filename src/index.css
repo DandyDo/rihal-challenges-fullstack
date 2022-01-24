@@ -19,7 +19,7 @@ button:hover {
 
 input {
   color: #dddddd;
-  padding: 4px;
+  padding: 2px;
   background-color: #95a4c90e;
 }
 
@@ -31,9 +31,14 @@ input:hover {
   background-color: #13151b;
 }
 
+label {
+  padding-top: 2px;
+}
+
 table {
   margin: 8px auto;
   border-collapse: collapse;
+  width: 50%;
   text-align: left;
 }
 
@@ -56,6 +61,10 @@ tr:nth-child(even){
 tr:hover {
   background-color: #181b22;
   cursor: pointer;
+}
+
+.innerDialogue {
+  background-color: #22272E;
 }
 
 code {

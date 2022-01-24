@@ -1,17 +1,21 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import Students from '../components/Lists/Students/Students';
-import Countries from '../components/Lists/Countries/Countries';
-import Classes from '../components/Lists/Classes/Classes';
 import StudentsAvg from '../components/Stats/StudentsAvg'; 
 import CountriesStats from '../components/Stats/CountriesStats';
 import ClassesStats from '../components/Stats/ClassesStats';
+import Dialogue from '../components/Lists/Dialogue';
+import Students from '../components/Lists/Students/Students';
+import Countries from '../components/Lists/Countries/Countries';
+import Classes from '../components/Lists/Classes/Classes';
 
 function App() {
   const [students, setStudents] = useState([])
   const [classes, setClasses] = useState([])
   const [countries, setCountries] = useState([])
+  const [classCond, setClassCond] = useState(false) // State for Dialogue.js
+  const [countryCond, setCountryCond] = useState(false) // State for Dialogue.js
+  const [studentCond, setStudentCond] = useState(false) // State for Dialogue.js
 
   // Get the required data from local db.json (using json-server)
   useEffect(() => {
@@ -76,9 +80,6 @@ function App() {
         <div className="tc pv3 mv2 ba br3 bw2 w-85 center">
           <div>
             <Header/>
-            <Classes classes={classes}></Classes>
-            <Countries countries={countries}></Countries>
-            <Students students={students}></Students>
             <h2>{`There is a total of ${students.length} students.`}</h2> 
             <StudentsAvg avgAge={ avgAge }/>
           </div>
@@ -87,9 +88,18 @@ function App() {
             <CountriesStats countries={ countries } students ={ studentsPerCountry }/>
           </div>
           <div className="flex flex-wrap justify-around mt3 w-50 center">
-            <button>View Classes</button>
-            <button>View Students</button>
-            <button>View Countries</button>
+            <button onClick={() => { setClassCond(true) }}>View Classes</button>
+            <button onClick={() => { setCountryCond(true) }}>View Countries</button>
+            <button onClick={() => { setStudentCond(true) }}>View Students</button>
+            <Dialogue condition={classCond} setCondition={ setClassCond }>
+              <Classes classes={classes} />
+            </Dialogue>
+            <Dialogue condition={countryCond} setCondition={ setCountryCond }>
+              <Countries countries={countries} />
+            </Dialogue>
+            <Dialogue condition={studentCond} setCondition={ setStudentCond }>
+              <Students students={students} />
+            </Dialogue>
           </div>
       </div>
     );
