@@ -1,9 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import Students from '../components/Lists/Students';
-import Countries from '../components/Lists/Countries';
-import Classes from '../components/Lists/Classes';
+import Students from '../components/Lists/Students/Students';
+import Countries from '../components/Lists/Countries/Countries';
+import Classes from '../components/Lists/Classes/Classes';
 import StudentsAvg from '../components/Stats/StudentsAvg'; 
 import CountriesStats from '../components/Stats/CountriesStats';
 import ClassesStats from '../components/Stats/ClassesStats';
