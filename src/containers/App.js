@@ -104,7 +104,7 @@ function App() {
             <button onClick={() => { setStudentCond(true) }}>View Students</button>
             {/* Below are hidden dialogues that get triggered by the three buttons above. */}
             <Dialogue condition={ classCond } setCondition={ setClassCond }>
-              <Classes classes={ classes } setEditClass={ setEditClass } setCondition={ setEditClassCond }/>
+              <Classes classes={ classes } setClasses={ setClasses } setEditClass={ setEditClass } setCondition={ setEditClassCond }/>
               <Dialogue condition={ editClassCond } setCondition={ setEditClassCond }>
                   <EditClasses editClass={ editClass } setEditClass={ setEditClass }/>
               </Dialogue>

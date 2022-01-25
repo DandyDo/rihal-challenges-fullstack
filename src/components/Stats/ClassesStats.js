@@ -7,7 +7,7 @@ const ClassesStats = ({ classes, students }) => {
             {
                 classes.map(({ class_name }, i) => {                        
                     return (
-                        <div key={class_name}>{`${class_name}: ${students[i+1]}`}</div>
+                        <div key={class_name}>{`${class_name}: ${students[i+1] ? students[i+1] : 0}`}</div>
                     );
                 })
             }
