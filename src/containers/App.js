@@ -110,7 +110,7 @@ function App() {
               </Dialogue>
             </Dialogue>
             <Dialogue condition={ countryCond } setCondition={ setCountryCond }>
-              <Countries countries={ countries } setEditCountry={ setEditCountry } setCondition={ setEditCountryCond }/>
+              <Countries countries={ countries } setCountries={ setCountries } setEditCountry={ setEditCountry } setCondition={ setEditCountryCond }/>
               <Dialogue condition={ editCountryCond } setCondition={ setEditCountryCond }>
                   <EditCountries editCountry={ editCountry } setEditCountry={ setEditCountry }/>
               </Dialogue>

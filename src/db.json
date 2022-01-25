@@ -153,6 +153,10 @@
     {
       "id": 3,
       "country_name": "Saudi Arabia"
+    },
+    {
+      "id": 4,
+      "country_name": "Marqadosh"
     }
   ],
   "classes": [
@@ -199,6 +203,10 @@
     {
       "id": 11,
       "class_name": "Human Resources"
+    },
+    {
+      "id": 12,
+      "class_name": "Computer Science"
     }
   ]
 }
