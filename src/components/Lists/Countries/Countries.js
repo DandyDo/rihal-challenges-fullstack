@@ -4,26 +4,29 @@ const Countries = ({ countries, setEditCountry, setCondition }) => {
   return (
     <div>
       <h2 className='underline'>Countries Table</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Country</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            countries.map(country => {
-              return (
-                <tr key={country.id} onClick={() => { setEditCountry(country); setCondition(true); }}>
-                  <td>{country.id}</td>
-                  <td>{country.country_name}</td>
-                </tr>
-              );
-            })
-          }        
-        </tbody>
-      </table>   
+      <div className='vh-50 center overflow-x-auto overflow-y-auto'>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              countries.map(country => {
+                return (
+                  <tr key={country.id} onClick={() => { setEditCountry(country); setCondition(true); }}>
+                    <td>{country.id}</td>
+                    <td>{country.country_name}</td>
+                  </tr>
+                );
+              })
+            }        
+          </tbody>
+        </table> 
+      </div>
+  
       <div className='pb3 mv4 ba br3 bw1 w-60 center'>
         <h3>Click on a row to modify/delete. Or add a country below:</h3>
         <label htmlFor='country'>Country: </label>

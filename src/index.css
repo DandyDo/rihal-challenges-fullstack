@@ -10,6 +10,7 @@ button {
   background-color: #333333;
   border-radius: 8px;
   padding: 0.4em;
+  box-shadow: 1px 1px #1a1a1a;
 }
 
 button:hover {
@@ -38,6 +39,7 @@ label {
 table {
   margin: 8px auto;
   border-collapse: collapse;
+  table-layout: auto;
   width: 50%;
   text-align: left;
 }

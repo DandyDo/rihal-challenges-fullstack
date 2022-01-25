@@ -4,7 +4,7 @@ const Students = ({ students, setEditStudent, setCondition }) => {
   return (
     <div>
       <h2 className='underline'>Students Table</h2>
-      <div className='vh-75 center overflow-x-auto overflow-y-auto'>
+      <div className='vh-50 center overflow-x-auto overflow-y-auto'>
         <table className='w-75'>
           <thead>
             <tr>

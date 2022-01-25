@@ -4,26 +4,29 @@ const Classes = ({ classes, setEditClass, setCondition }) => {
   return (
     <div>
       <h2 className='underline'>Classes Table</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Class Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            classes.map(course => {
-              return (
-                <tr key={course.id} onClick={() => { setEditClass(course); setCondition(true); }}>
-                  <td>{course.id}</td>
-                  <td>{course.class_name}</td>
-                </tr>
-              );
-            })
-          }        
-        </tbody>
-      </table>
+      <div className='vh-50 center overflow-x-auto overflow-y-auto'>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Class Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              classes.map(course => {
+                return (
+                  <tr key={course.id} onClick={() => { setEditClass(course); setCondition(true); }}>
+                    <td>{course.id}</td>
+                    <td>{course.class_name}</td>
+                  </tr>
+                );
+              })
+            }        
+          </tbody>
+        </table>
+      </div>
+
       <div className='pb3 mv4 ba br3 bw1 w-60 center'>
         <h3>Click on a row to modify/delete. Or add a class below:</h3>
         <label htmlFor='class_name'>Class name: </label>
