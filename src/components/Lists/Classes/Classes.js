@@ -8,7 +8,7 @@ const Classes = ({ classes, setClasses, setEditClass, setCondition }) => {
   }
 
   const onSubmitAdd = () => {
-    if (className === '')
+    if (!className)
       return;
 
     fetch('http://localhost:3000/classes', {

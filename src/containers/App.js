@@ -116,7 +116,7 @@ function App() {
               </Dialogue>
             </Dialogue>
             <Dialogue condition={ studentCond } setCondition={ setStudentCond }>
-              <Students students={ students } setEditStudent={ setEditStudent } setCondition={ setEditStudentCond }/>
+              <Students students={ students } setStudents={ setStudents } setEditStudent={ setEditStudent } setCondition={ setEditStudentCond }/>
               <Dialogue condition={ editStudentCond } setCondition={ setEditStudentCond }>
                   <EditStudents editStudent={ editStudent } setEditStudent={ setEditStudent }/>
               </Dialogue>

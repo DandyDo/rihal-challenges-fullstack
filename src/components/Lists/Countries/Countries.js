@@ -8,7 +8,7 @@ const Countries = ({ countries, setCountries, setEditCountry, setCondition }) =>
   }
 
   const onSubmitAdd = () => {
-    if (countryName === '')
+    if (!countryName)
       return;
 
     fetch('http://localhost:3000/countries', {
