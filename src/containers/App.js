@@ -1,13 +1,32 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Classes from '../components/Classes';
-import Countries from '../components/Countries';
-import Students from '../components/Students';
+import Header from '../components/Header';
+import StudentsAvg from '../components/Stats/StudentsAvg'; 
+import CountriesStats from '../components/Stats/CountriesStats';
+import ClassesStats from '../components/Stats/ClassesStats';
+import Dialogue from '../components/Lists/Dialogue';
+import Students from '../components/Lists/Students/Students';
+import Countries from '../components/Lists/Countries/Countries';
+import Classes from '../components/Lists/Classes/Classes';
+import EditClasses from '../components/Lists/Classes/EditClasses';
+import EditCountries from '../components/Lists/Countries/EditCountries';
+import EditStudents from '../components/Lists/Students/EditStudents';
 
 function App() {
   const [students, setStudents] = useState([])
-  const [classes, setClasses] = useState({})
-  const [countries, setCountries] = useState({})
+  const [classes, setClasses] = useState([])
+  const [countries, setCountries] = useState([])
+  const [editClass, setEditClass] = useState([])
+  const [editCountry, setEditCountry] = useState([])
+  const [editStudent, setEditStudent] = useState([])
+
+  // The following states are for Dialogue.js
+  const [classCond, setClassCond] = useState(false)
+  const [countryCond, setCountryCond] = useState(false)
+  const [studentCond, setStudentCond] = useState(false)
+  const [editClassCond, setEditClassCond] = useState(false)
+  const [editCountryCond, setEditCountryCond] = useState(false) 
+  const [editStudentCond, setEditStudentCond] = useState(false)
 
   // Get the required data from local db.json (using json-server)
   useEffect(() => {
@@ -24,6 +43,7 @@ function App() {
     fetch('http://localhost:3000/countries')
       .then(response => response.json())
       .then(data => {setCountries(data)})
+      
       .catch(err => console.log(err));
   }, [])
 
@@ -37,12 +57,12 @@ function App() {
     return result;
   }
 
-  // Convert birthdate to  age from passed input (yyyy-mm-dd)
+  // Convert birthdate to age from passed input (yyyy-mm-dd)
   const getAge = (dateString) => {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
+    let today = new Date();
+    let birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
@@ -63,22 +83,45 @@ function App() {
   const studentsPerClass = groupObjKeyValue(studentsClassesKey);
 
   // Check if data has been fetched then display info, if not then display 'LOADING...'
-  if (!students.length || !Object.keys(classes).length || !Object.keys(countries).length) {
-    return (
-      <div className="App">
-        <a href="https://github.com/rihal-om/rihal-challenges/tree/main/devops" target="_blank" rel="noreferrer"><h1>Rihal's Challenge</h1></a>
-        <h1>LOADING...</h1>
-      </div>
-    );
+  if (!students.length || !classes.length || !countries.length) {
+    return <h1 className="pa6 mv7 tc pv3 mv2">LOADING...</h1>;
   }
   else {
     return (
-      <div className="App">
-        <a href="https://github.com/rihal-om/rihal-challenges/tree/main/devops" target="_blank" rel="noreferrer"><h1>Rihal's Challenge</h1></a>
-        <h2>{`There are a total of ${students.length} students.`}</h2>
-        <Students avgAge={ avgAge }/>
-        <Classes classes={ classes } students ={ studentsPerClass }/>
-        <Countries countries={ countries } students ={ studentsPerCountry }/>
+        <div className="tc pv3 mv2 ba br3 bw2 w-85 center">
+          <div>
+            <Header/>
+            <h2>{`There is a total of ${students.length} students.`}</h2> 
+            <StudentsAvg avgAge={ avgAge }/>
+          </div>
+          <div className="flex flex-wrap justify-around w-70 center">
+            <ClassesStats classes={ classes } students ={ studentsPerClass }/>
+            <CountriesStats countries={ countries } students ={ studentsPerCountry }/>
+          </div>
+          <div className="flex flex-wrap justify-around mt3 w-50 center">
+            <button onClick={() => { setClassCond(true) }}>View Classes</button>
+            <button onClick={() => { setCountryCond(true) }}>View Countries</button>
+            <button onClick={() => { setStudentCond(true) }}>View Students</button>
+            {/* Below are hidden dialogues that get triggered by the three buttons above. */}
+            <Dialogue condition={ classCond } setCondition={ setClassCond }>
+              <Classes classes={ classes } setEditClass={ setEditClass } setCondition={ setEditClassCond }/>
+              <Dialogue condition={ editClassCond } setCondition={ setEditClassCond }>
+                  <EditClasses editClass={ editClass } setEditClass={ setEditClass }/>
+              </Dialogue>
+            </Dialogue>
+            <Dialogue condition={ countryCond } setCondition={ setCountryCond }>
+              <Countries countries={ countries } setEditCountry={ setEditCountry } setCondition={ setEditCountryCond }/>
+              <Dialogue condition={ editCountryCond } setCondition={ setEditCountryCond }>
+                  <EditCountries editCountry={ editCountry } setEditCountry={ setEditCountry }/>
+              </Dialogue>
+            </Dialogue>
+            <Dialogue condition={ studentCond } setCondition={ setStudentCond }>
+              <Students students={ students } setEditStudent={ setEditStudent } setCondition={ setEditStudentCond }/>
+              <Dialogue condition={ editStudentCond } setCondition={ setEditStudentCond }>
+                  <EditStudents editStudent={ editStudent } setEditStudent={ setEditStudent }/>
+              </Dialogue>
+            </Dialogue>
+          </div>
       </div>
     );
   }
