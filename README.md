@@ -1,6 +1,6 @@
 Checkout Rihal's challenge [HERE](https://github.com/rihal-om/rihal-challenges/tree/main/devops).
 
-NOTE: This is the front-end repo for this project.
+NOTE: This is the front-end repo for this project. The back-end is [HERE](https://github.com/DandyDo/rihal-challenges-back-end).
 
 
 ## Scripts to get started with this version of project (Run the project locally).
