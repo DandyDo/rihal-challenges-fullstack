@@ -112,13 +112,13 @@ function App() {
             <Dialogue condition={ countryCond } setCondition={ setCountryCond }>
               <Countries countries={ countries } setCountries={ setCountries } setEditCountry={ setEditCountry } setCondition={ setEditCountryCond }/>
               <Dialogue condition={ editCountryCond } setCondition={ setEditCountryCond }>
-                  <EditCountries countries={ countries } editCountry={ editCountry } setEditCountry={ setEditCountry }/>
+                  <EditCountries setCountries={ setCountries } editCountry={ editCountry } setEditCountry={ setEditCountry }/>
               </Dialogue>
             </Dialogue>
             <Dialogue condition={ studentCond } setCondition={ setStudentCond }>
               <Students students={ students } setStudents={ setStudents } setEditStudent={ setEditStudent } setCondition={ setEditStudentCond }/>
               <Dialogue condition={ editStudentCond } setCondition={ setEditStudentCond }>
-                  <EditStudents students={ students } editStudent={ editStudent } setEditStudent={ setEditStudent }/>
+                  <EditStudents setStudents={ setStudents } editStudent={ editStudent } setEditStudent={ setEditStudent }/>
               </Dialogue>
             </Dialogue>
           </div>
