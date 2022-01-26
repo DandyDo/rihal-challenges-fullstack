@@ -16,9 +16,9 @@ function App() {
   const [students, setStudents] = useState([])
   const [classes, setClasses] = useState([])
   const [countries, setCountries] = useState([])
-  const [editClass, setEditClass] = useState([])
-  const [editCountry, setEditCountry] = useState([])
-  const [editStudent, setEditStudent] = useState([])
+  const [editClass, setEditClass] = useState({})
+  const [editCountry, setEditCountry] = useState({})
+  const [editStudent, setEditStudent] = useState({})
 
   // The following states are for Dialogue.js
   const [classCond, setClassCond] = useState(false)
@@ -106,19 +106,19 @@ function App() {
             <Dialogue condition={ classCond } setCondition={ setClassCond }>
               <Classes classes={ classes } setClasses={ setClasses } setEditClass={ setEditClass } setCondition={ setEditClassCond }/>
               <Dialogue condition={ editClassCond } setCondition={ setEditClassCond }>
-                  <EditClasses editClass={ editClass } setEditClass={ setEditClass }/>
+                  <EditClasses setClasses={ setClasses } editClass={ editClass } setEditClass={ setEditClass }/>
               </Dialogue>
             </Dialogue>
             <Dialogue condition={ countryCond } setCondition={ setCountryCond }>
               <Countries countries={ countries } setCountries={ setCountries } setEditCountry={ setEditCountry } setCondition={ setEditCountryCond }/>
               <Dialogue condition={ editCountryCond } setCondition={ setEditCountryCond }>
-                  <EditCountries editCountry={ editCountry } setEditCountry={ setEditCountry }/>
+                  <EditCountries countries={ countries } editCountry={ editCountry } setEditCountry={ setEditCountry }/>
               </Dialogue>
             </Dialogue>
             <Dialogue condition={ studentCond } setCondition={ setStudentCond }>
               <Students students={ students } setStudents={ setStudents } setEditStudent={ setEditStudent } setCondition={ setEditStudentCond }/>
               <Dialogue condition={ editStudentCond } setCondition={ setEditStudentCond }>
-                  <EditStudents editStudent={ editStudent } setEditStudent={ setEditStudent }/>
+                  <EditStudents students={ students } editStudent={ editStudent } setEditStudent={ setEditStudent }/>
               </Dialogue>
             </Dialogue>
           </div>
