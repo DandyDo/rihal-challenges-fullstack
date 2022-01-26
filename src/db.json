@@ -139,6 +139,13 @@
       "country_id": 2,
       "name": "Norina Retter",
       "birthdate": "2000-04-20"
+    },
+    {
+      "id": 21,
+      "class_id": 12,
+      "country_id": 1,
+      "name": "Salim",
+      "birthdate": "2008-02-26"
     }
   ],
   "countries": [
@@ -207,6 +214,10 @@
     {
       "id": 12,
       "class_name": "Computer Science"
+    },
+    {
+      "id": 13,
+      "class_name": "Music"
     }
   ]
 }

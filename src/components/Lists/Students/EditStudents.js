@@ -1,12 +1,24 @@
 import React from 'react';
 
-const EditStudents = ({ editStudent, setEditStudent }) => {
+const EditStudents = ({ setStudents, editStudent, setEditStudent }) => {
   const onStudentClassChange = (event) => {
-    setEditStudent({...editStudent, class_id: event.target.value})
+    const input = parseInt(event.target.value);
+
+    if (input % 1 === 0) {
+      setEditStudent({...editStudent, class_id: input})
+    } else {
+      setEditStudent({...editStudent, class_id: ''});
+    }
   }
 
   const onStudentCountryChange = (event) => {
-    setEditStudent({...editStudent, country_id: event.target.value})
+    const input = parseInt(event.target.value);
+
+    if (input % 1 === 0) {
+      setEditStudent({...editStudent, country_id: input})
+    } else {
+      setEditStudent({...editStudent, country_id: ''});
+    }
   }
 
   const onStudentNameChange = (event) => {
@@ -15,6 +27,68 @@ const EditStudents = ({ editStudent, setEditStudent }) => {
 
   const onStudentBirthChange = (event) => {
     setEditStudent({...editStudent, birthdate: event.target.value})
+  }
+  
+  const onSubmitDelete = () => {
+    if (!editStudent.id)
+        return;
+
+    fetch('http://localhost:3000/students/' + editStudent.id, {
+        method: 'delete',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            id: editStudent.id
+        })
+    })
+    .then(setStudents(state => {
+        const newState = state.filter(item => item.id !== editStudent.id);
+        return newState;
+    }))
+    .then(setEditStudent({
+      id: '',
+      class_id: '',
+      country_id: '',
+      name: '',
+      birthdate: ''
+    }))
+    .catch(error => console.log(error));
+  }
+
+  const onSubmitUpdate= () => {
+    if (!editStudent.id || !editStudent.class_id || !editStudent.country_id || !editStudent.name || !editStudent.birthdate )
+        return;
+    
+    fetch('http://localhost:3000/students/' + editStudent.id, {
+        method: 'put',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          id: '',
+          class_id: editStudent.class_id,
+          country_id: editStudent.country_id,
+          name: editStudent.name,
+          birthdate: editStudent.birthdate
+        })
+    })
+    .then(setStudents(state => {
+        const newState = state.map(item => {
+            if (item.id === editStudent.id) {
+              item.class_id = editStudent.class_id;
+              item.country_id = editStudent.country_id;
+              item.name = editStudent.name;
+              item.birthdate = editStudent.birthdate;
+            }
+            return item;
+        });         
+        return newState;
+    }))
+    .then(setEditStudent({
+      id: '',
+      class_id: '',
+      country_id: '',
+      name: '',
+      birthdate: ''
+    }))
+    .catch(error => console.log(error));
   }
 
   return (
@@ -80,8 +154,8 @@ const EditStudents = ({ editStudent, setEditStudent }) => {
         />
       </div>
       <div className='ma2 flex justify-around'>
-        <button className='mt3 w-20 bg-red'>Delete</button>
-        <button className='mt3 w-20 bg-dark-green'>Update</button>
+        <button className='mt3 w-20 bg-red' onClick={onSubmitDelete}>Delete</button>
+        <button className='mt3 w-20 bg-dark-green' onClick={onSubmitUpdate}>Update</button>
       </div>
     </div>
 );
