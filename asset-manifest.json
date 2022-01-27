@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.7f9ace55.css",
-    "main.js": "/static/js/main.547bf17a.js",
-    "static/js/787.b4521b49.chunk.js": "/static/js/787.b4521b49.chunk.js",
-    "index.html": "/index.html",
-    "main.7f9ace55.css.map": "/static/css/main.7f9ace55.css.map",
-    "main.547bf17a.js.map": "/static/js/main.547bf17a.js.map",
-    "787.b4521b49.chunk.js.map": "/static/js/787.b4521b49.chunk.js.map"
+    "main.css": "/rihal-challenges-fullstack/static/css/main.7f9ace55.css",
+    "main.js": "/rihal-challenges-fullstack/static/js/main.3b612c44.js",
+    "static/js/787.b4521b49.chunk.js": "/rihal-challenges-fullstack/static/js/787.b4521b49.chunk.js",
+    "index.html": "/rihal-challenges-fullstack/index.html",
+    "main.7f9ace55.css.map": "/rihal-challenges-fullstack/static/css/main.7f9ace55.css.map",
+    "main.3b612c44.js.map": "/rihal-challenges-fullstack/static/js/main.3b612c44.js.map",
+    "787.b4521b49.chunk.js.map": "/rihal-challenges-fullstack/static/js/787.b4521b49.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7f9ace55.css",
-    "static/js/main.547bf17a.js"
+    "static/js/main.3b612c44.js"
   ]
 }
