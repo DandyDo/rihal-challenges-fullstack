@@ -38,7 +38,7 @@ const Students = ({ students, setStudents, setEditStudent, setCondition }) => {
     if (!classId || !countryId || !name || !birthdate)
       return;
 
-    fetch('http://localhost:3000/students', {
+    fetch('https://sleepy-reef-72657.herokuapp.com/students', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 

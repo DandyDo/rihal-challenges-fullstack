@@ -30,17 +30,17 @@ function App() {
 
   // Get the required data from local db.json (using json-server)
   useEffect(() => {
-    fetch('http://localhost:3000/students')
+    fetch('https://sleepy-reef-72657.herokuapp.com/students')
       .then(response => response.json())
       .then(data => {setStudents(data)})
       .catch(err => console.log(err));
       
-    fetch('http://localhost:3000/classes')
+    fetch('https://sleepy-reef-72657.herokuapp.com/classes')
       .then(response => response.json())
       .then(data => {setClasses(data)})
       .catch(err => console.log(err));
 
-    fetch('http://localhost:3000/countries')
+    fetch('https://sleepy-reef-72657.herokuapp.com/countries')
       .then(response => response.json())
       .then(data => {setCountries(data)})
       

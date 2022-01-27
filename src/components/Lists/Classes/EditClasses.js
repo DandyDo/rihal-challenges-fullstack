@@ -9,7 +9,7 @@ const EditClasses = ({ setClasses, editClass, setEditClass }) => {
         if (!editClass.id)
             return;
 
-        fetch('http://localhost:3000/classes/' + editClass.id, {
+        fetch('https://sleepy-reef-72657.herokuapp.com/classes/' + editClass.id, {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -28,7 +28,7 @@ const EditClasses = ({ setClasses, editClass, setEditClass }) => {
         if (!editClass.id || !editClass.class_name)
             return;
         
-        fetch('http://localhost:3000/classes/' + editClass.id, {
+        fetch('https://sleepy-reef-72657.herokuapp.com/classes/' + editClass.id, {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

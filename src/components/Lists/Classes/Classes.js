@@ -11,7 +11,7 @@ const Classes = ({ classes, setClasses, setEditClass, setCondition }) => {
     if (!className)
       return;
 
-    fetch('http://localhost:3000/classes', {
+    fetch('https://sleepy-reef-72657.herokuapp.com/classes', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 

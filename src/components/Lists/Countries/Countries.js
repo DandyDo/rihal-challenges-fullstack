@@ -11,7 +11,7 @@ const Countries = ({ countries, setCountries, setEditCountry, setCondition }) =>
     if (!countryName)
       return;
 
-    fetch('http://localhost:3000/countries', {
+    fetch('https://sleepy-reef-72657.herokuapp.com/countries', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ 

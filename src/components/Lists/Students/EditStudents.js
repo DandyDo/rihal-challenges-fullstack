@@ -33,7 +33,7 @@ const EditStudents = ({ setStudents, editStudent, setEditStudent }) => {
     if (!editStudent.id)
         return;
 
-    fetch('http://localhost:3000/students/' + editStudent.id, {
+    fetch('https://sleepy-reef-72657.herokuapp.com/students/' + editStudent.id, {
         method: 'delete',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -58,7 +58,7 @@ const EditStudents = ({ setStudents, editStudent, setEditStudent }) => {
     if (!editStudent.id || !editStudent.class_id || !editStudent.country_id || !editStudent.name || !editStudent.birthdate )
         return;
     
-    fetch('http://localhost:3000/students/' + editStudent.id, {
+    fetch('https://sleepy-reef-72657.herokuapp.com/students/' + editStudent.id, {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

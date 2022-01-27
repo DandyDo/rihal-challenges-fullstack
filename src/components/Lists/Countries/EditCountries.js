@@ -9,7 +9,7 @@ const EditCountries = ({ setCountries, editCountry, setEditCountry}) => {
     if (!editCountry.id)
         return;
 
-    fetch('http://localhost:3000/countries/' + editCountry.id, {
+    fetch('https://sleepy-reef-72657.herokuapp.com/countries/' + editCountry.id, {
         method: 'delete',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -28,7 +28,7 @@ const EditCountries = ({ setCountries, editCountry, setEditCountry}) => {
     if (!editCountry.id || !editCountry.country_name)
         return;
     
-    fetch('http://localhost:3000/countries/' + editCountry.id, {
+    fetch('https://sleepy-reef-72657.herokuapp.com/countries/' + editCountry.id, {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
