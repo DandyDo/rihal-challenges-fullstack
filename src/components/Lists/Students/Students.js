@@ -49,7 +49,12 @@ const Students = ({ students, setStudents, setEditStudent, setCondition }) => {
         birthdate: birthdate
       })
     })
-    .then(response => response.json())
+    .then(response => {
+      if (response.status >= 400 && response.status < 600) {
+        throw new Error("Either IDs don't exist.");
+      }
+      return response.json();
+    })
     .then(student => setStudents(state => [...state, student]))
     .then(() => {
       setClassId('');
