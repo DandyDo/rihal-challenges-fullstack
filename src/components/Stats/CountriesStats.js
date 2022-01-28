@@ -7,7 +7,7 @@ const CountriesStats = ({ countries, students }) => {
             {
                 countries.map(({ country_name }, i) => {                        
                     return (
-                        <p key={country_name}>{`${country_name}: ${students[i+1] ? students[i+1] : 0}`}</p>
+                        <p key={i}>{`${country_name}: ${students[i+1] ? students[i+1] : 0}`}</p>
                     );
                 })
             }
