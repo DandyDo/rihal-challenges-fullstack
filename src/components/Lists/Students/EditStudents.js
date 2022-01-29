@@ -62,7 +62,7 @@ const EditStudents = ({ setStudents, editStudent, setEditStudent }) => {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          id: '',
+          id: editStudent.id,
           class_id: editStudent.class_id,
           country_id: editStudent.country_id,
           name: editStudent.name,

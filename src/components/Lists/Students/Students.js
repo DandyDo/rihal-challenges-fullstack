@@ -74,7 +74,7 @@ const Students = ({ students, setStudents, setEditStudent, setCondition }) => {
             <tr>
               <th>#</th>
               <th>Class ID</th>
-              <th>Course ID</th>
+              <th>Country ID</th>
               <th>Student Name</th>
               <th>Birthdate</th>
             </tr>

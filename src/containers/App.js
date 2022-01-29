@@ -100,8 +100,8 @@ function App() {
           </div>
           <div className="flex flex-wrap justify-around mt3 w-50 center">
             <button onClick={() => { setClassCond(true) }}>View Classes</button>
-            <button onClick={() => { setCountryCond(true) }}>View Countries</button>
             <button onClick={() => { setStudentCond(true) }}>View Students</button>
+            <button onClick={() => { setCountryCond(true) }}>View Countries</button>
             {/* Below are hidden dialogues that get triggered by the three buttons above. */}
             <Dialogue condition={ classCond } setCondition={ setClassCond }>
               <Classes classes={ classes } setClasses={ setClasses } setEditClass={ setEditClass } setCondition={ setEditClassCond }/>
