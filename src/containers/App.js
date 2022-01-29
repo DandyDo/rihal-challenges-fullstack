@@ -42,45 +42,9 @@ function App() {
 
     fetch('https://sleepy-reef-72657.herokuapp.com/countries')
       .then(response => response.json())
-      .then(data => {setCountries(data)})
-      
+      .then(data => {setCountries(data)})   
       .catch(err => console.log(err));
-  }, [])
-
-  // Group the object's key values (for example in case of classes_id, 1: 6, 2: 3, 3: 12, ...)
-  const groupObjKeyValue = (studentsKey) => {
-    const result = studentsKey.reduce((acc, b) => {
-      acc[b] = acc[b] + 1 || 1
-      return acc;
-    }, {});
-
-    return result;
-  }
-
-  // Convert birthdate to age from passed input (yyyy-mm-dd)
-  const getAge = (dateString) => {
-    let today = new Date();
-    let birthDate = new Date(dateString);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    let m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-  }
-
-  // Extract the birdates, then find the average age of students
-  const avgAge = students.map(({ birthdate }) => {
-    return getAge((birthdate));
-  }).reduce((sum, age) => { 
-    return (sum + age / students.length) 
-  }, 0).toFixed(2);  
-
-  // Extract the classes/countries IDs only from students
-  const studentsCountryKey = students.map(({ country_id }) => (country_id));
-  const studentsClassesKey = students.map(({ class_id }) => (class_id));
-  const studentsPerCountry = groupObjKeyValue(studentsCountryKey);
-  const studentsPerClass = groupObjKeyValue(studentsClassesKey);
+  }, []);
 
   // Check if data has been fetched then display info, if not then display 'LOADING...'
   if (!students.length || !classes.length || !countries.length) {
@@ -92,11 +56,11 @@ function App() {
           <div>
             <Header/>
             <h2>{`There is a total of ${students.length} students.`}</h2> 
-            <StudentsAvg avgAge={ avgAge }/>
+            <StudentsAvg students={ students }/>
           </div>
           <div className="flex flex-wrap justify-around w-70 center">
-            <ClassesStats classes={ classes } students ={ studentsPerClass }/>
-            <CountriesStats countries={ countries } students ={ studentsPerCountry }/>
+            <ClassesStats classes={ classes } students ={ students }/>
+            <CountriesStats countries={ countries } students ={ students }/>
           </div>
           <div className="flex flex-wrap justify-around mt3 w-50 center">
             <button onClick={() => { setClassCond(true) }}>View Classes</button>

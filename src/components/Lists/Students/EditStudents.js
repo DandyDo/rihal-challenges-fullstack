@@ -69,7 +69,11 @@ const EditStudents = ({ setStudents, editStudent, setEditStudent }) => {
           birthdate: editStudent.birthdate
         })
     })
-    .then(setStudents(state => {
+    .then(response => {
+      if (!response.ok) {
+          throw new Error("Cannot add a non-existent IDs.");
+      }
+      setStudents(state => {
         const newState = state.map(item => {
             if (item.id === editStudent.id) {
               item.class_id = editStudent.class_id;
@@ -80,14 +84,15 @@ const EditStudents = ({ setStudents, editStudent, setEditStudent }) => {
             return item;
         });         
         return newState;
-    }))
-    .then(setEditStudent({
-      id: '',
-      class_id: '',
-      country_id: '',
-      name: '',
-      birthdate: ''
-    }))
+      });
+      setEditStudent({
+        id: '',
+        class_id: '',
+        country_id: '',
+        name: '',
+        birthdate: ''
+      });
+    })
     .catch(error => console.log(error));
   }
 

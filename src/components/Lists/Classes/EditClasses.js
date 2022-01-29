@@ -16,11 +16,16 @@ const EditClasses = ({ setClasses, editClass, setEditClass }) => {
                 id: editClass.id
             })
         })
-        .then(setClasses(state => {
-            const newState = state.filter(item => item.id !== editClass.id);
-            return newState;
-        }))
-        .then(setEditClass({id: '', class_name: ''}))
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Class ID has a student dependency.");
+            }
+            setClasses(state => {
+                const newState = state.filter(item => item.id !== editClass.id);
+                return newState;
+            });
+            setEditClass({id: '', class_name: ''});
+        })
         .catch(error => console.log(error));
     }
 

@@ -50,8 +50,8 @@ const Students = ({ students, setStudents, setEditStudent, setCondition }) => {
       })
     })
     .then(response => {
-      if (response.status >= 400 && response.status < 600) {
-        throw new Error("Either IDs don't exist.");
+      if (!response.ok) {
+        throw new Error("Either class/country ID don't exist.");
       }
       return response.json();
     })

@@ -16,11 +16,16 @@ const EditCountries = ({ setCountries, editCountry, setEditCountry}) => {
             id: editCountry.id
         })
     })
-    .then(setCountries(state => {
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Country ID has a student dependency.");
+      }
+      setCountries(state => {
         const newState = state.filter(item => item.id !== editCountry.id);
         return newState;
-    }))
-    .then(setEditCountry({id: '', country_name: ''}))
+      });
+      setEditCountry({id: '', country_name: ''});
+    })
     .catch(error => console.log(error));
   }
 
